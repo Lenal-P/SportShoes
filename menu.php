@@ -40,7 +40,7 @@ session_start();
                         <li class="nav-item">
                             <a type="button" class="btn btn-secondary"
                                 href="../ThanhVien/profile.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>" id="btn"
-                                style="color:rgb(222, 90, 0);font-size: 18px;font-weight:bold"></span>
+                                style="color:rgb(222, 90, 0);font-size: 18px;font-weight:bold;position:absolute;right: 2%;cursor: pointer;z-index: 10000;background-color: transparent !important;border: none !important;"></span>
                                 <?php echo $_SESSION['HoVaTen'] ?>
                             </a>
                         </li>
@@ -58,10 +58,10 @@ session_start();
               </div>
           </div>
           <form action="../sanpham/actionSanPham.php?TimKiem" class="navbar-form navbar-right" method="POST">
-            <div class="input-group">
+            <div class="input-group" style="right: 220%;width: 200%;">
                 <input type="Search" placeholder="Tìm Kiếm..." class="form-control" name="tukhoa">
                 <div class="input-group-btn">
-                  <button type="submit" class="btn btn-secondary" name='tim'>
+                  <button type="submit" class="btn btn-secondary" name='tim' style ="position:absolute;right: 2%;cursor: pointer;z-index: 10000;background-color: transparent !important;border: none !important;color: black;">
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </div>

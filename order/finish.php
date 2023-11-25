@@ -23,9 +23,9 @@ session_start();
 <body>
   <?php @include("../menu.php"); ?>
 
-  <div class="container">
-    <div class="container p-0">
-      <div class="card px-4">
+  <div class="container" style="width:100vw;height:80vh">
+    <div class="container p-0" style="width:100%;height:100%;display:flex;justify-content:center">
+      <div class="card px-4" style="width:50%;height:80%;margin-top:20px">
         <h4>Thanh Toán Trực Tuyến</h2>
           <div class="row gx-3">
             <div class="col-12">
@@ -59,7 +59,7 @@ session_start();
               </div>
             </div>
             <a type="button" class="btn btn-secondary" href="dathang.php"
-              style="background-color: green; color:white;"></span> Thanh Toán</a>
+              style="background-color:rgb(222, 90, 0);color:white;bottom:10px"></span> Thanh Toán</a>
           </div>
       </div>
     </div>

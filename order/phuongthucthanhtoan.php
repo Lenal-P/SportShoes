@@ -44,7 +44,7 @@ if (isset($_POST['dathang'])) {
 <body>
     <?php @include("../menu.php"); ?>
 
-    <main role="main">
+    <main role="main" style="height:120vh">
         <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
         <div class="container mt-4">
             <form class="needs-validation" name="frmthanhtoan" method="post" action="#">

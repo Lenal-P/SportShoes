@@ -33,7 +33,7 @@ $row_getOrder = mysqli_fetch_array($query_getOrder);
 <body>
   <?php @include("../menu.php"); ?>
 
-  <div class="container">
+  <div class="container" style="margin-top:30px;">
     <form method="POST" action="">
       <?php
       $count1 = 1;
@@ -56,7 +56,7 @@ $row_getOrder = mysqli_fetch_array($query_getOrder);
       }
       ?>
 
-      <td><input type="submit" name="back" value="Trở về trang chủ ?? Hãy nhấn vào đây"></td>
+      <td><input type="submit" name="back" value="Trở về trang chủ ?? Hãy nhấn vào đây" style="padding:10px;border-radius:10px;"></td>
     </form>
   </div>
 

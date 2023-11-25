@@ -47,66 +47,32 @@ if (isset($_POST['sua']) && $_POST['old-password'] != "" && $_POST['new-password
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="../home.css">
-  <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
+  <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="../image/png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-  <style type="">
-    .divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
-}
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
-}
-  </style>
 </head>
 
 <body>
   <?php @include("../menu.php"); ?>
 
-  <div class="container" style="height:500px;">
+  <div class="container" style="height:500px;width: 100%;display:flex;justify-content:center;align-items:center;text-align:left;flex-direction:column;">
     <br>
     <hr>
-    <div class="card bg-light" style="width: 100%;height:80%">
-      <article class="card-body mx-auto" style="width: 100%;">
+    <div class="card bg-light" style="width: 50%;height:80%">
+      <article class="card-body mx-auto" style="width: 100%;display:flex;justify-content:center;align-items:center;text-align:left;flex-direction:column;">
         <h4 class="card-title mt-3 text-center">Đổi mật khẩu</h4>
-        <form action="" method="POST" style="display:flex;flex-direction:column;margin: 0 30%;width:60%;">
+        <form action="" method="POST">
           <label for="password"><b>Mật khẩu cũ&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-          <input type="password" name="old-password" required style="width:70%;height:30px;transform:scale(1);border-radius:5px;">
+          <input type="password" name="old-password" required style="width:100%;height:30px;transform:scale(1);border-radius:5px;">
           <label for="password-repeat"><b> Mật khẩu mới &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-          <input type="password" name="new-password" required style="width:70%;height:30px;transform:scale(1);border-radius:5px;">
+          <input type="password" name="new-password" required style="width:100%;height:30px;transform:scale(1);border-radius:5px;">
           <label for="password-repeat"><b>Nhập lại mật khẩu</b></label>
-          <input type="password" name="new-password-repeat" required style="width:70%;height:30px;transform:scale(1);border-radius:5px;">
+          <input type="password" name="new-password-repeat" required style="width:100%;height:30px;transform:scale(1);border-radius:5px;">
           </br>
           </br>
-          <input type="submit" class="btn btn-primary btn-block" name="sua" value="Sửa"
-            style="float: right; width:100px; ;">
+          <input type="submit" class="btn btn-primary btn-block" name="sua" value="Sửa" style="float: right; width:100px;back ;">
         </form>
       </article>
     </div>

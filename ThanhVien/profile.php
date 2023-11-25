@@ -19,9 +19,9 @@ $row = mysqli_fetch_array($query_Cus);
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="../home.css">
   <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
+  <link rel="stylesheet" href="./profile.css">
   <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="../image/png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
@@ -66,33 +66,33 @@ $row = mysqli_fetch_array($query_Cus);
       <br>
       <hr>
       <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
+        <article class="card-body mx-auto" style="margin:0 !important;">
           <h4 class="card-title mt-3 text-center">Thông tin cá nhân</h4>
           <form>
-            <div class="form-group input-group">
+            <div class="form-group input-group info">
               <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
               </div>
-              <input name="HoVaTen" class="form-control" value="<?php echo $row['HoVaTen'] ?>">
+              <input name="HoVaTen" class="form-control" value="<?php echo $row['HoVaTen'] ?>"readonly>
             </div> <!-- form-group// -->
-            <div class="form-group input-group">
+            <div class="form-group input-group info">
               <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
               </div>
-              <input name="Email" class="form-control" value="<?php echo $row['Email'] ?>">
+              <input name="Email" class="form-control" value="<?php echo $row['Email'] ?>"readonly>
             </div> <!-- form-group// -->
-            <div class="form-group input-group">
+            <div class="form-group input-group info">
               <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
               </div>
-              <input name="" class="form-control" value="<?php echo $row['SoDienThoai'] ?>">
+              <input name="" class="form-control" value="<?php echo $row['SoDienThoai'] ?>"readonly>
             </div> <!-- form-group// -->
-            <div class="form-group input-group">
+            <div class="form-group input-group info">
               <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-building"></i> </span>
               </div>
               <input name="" class="form-control" placeholder="Phone number" type="text"
-                value="<?php echo $row['DiaChi'] ?>">
+                value="<?php echo $row['DiaChi'] ?>"readonly>
             </div> <!-- form-group end.// -->
             </br>
             <p class="text-center">Bạn muốn Đổi mật khẩu? <a
@@ -102,8 +102,8 @@ $row = mysqli_fetch_array($query_Cus);
           </form>
         </article>
       </div>
-      <?php @include("../footer.php"); ?>
     </div>
+    <?php @include("../footer.php"); ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

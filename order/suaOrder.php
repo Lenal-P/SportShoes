@@ -63,7 +63,7 @@ $row_getCus = mysqli_fetch_array($query_getCus);
 <body>
   <?php @include("../menu.php"); ?>
 
-  <div class="container">
+  <div class="container" style="margin-top:30px;display:flex;align-item:center;justify-content:center">
     <div class="get-order" style="float: left; ">
       <h2>Sửa Thông tin người dùng</h2>
       <div class="alert alert-success" role="alert">
@@ -85,25 +85,24 @@ $row_getCus = mysqli_fetch_array($query_getCus);
               <?php echo $row['GiaTien'] ?> đ
             </label>
             </br>
-            <td>Dia Chi</td>
+            <td>Địa chỉ</td>
             <td><input class="form-control" type="text" name="DiaChi" value="<?php echo $row['DiaChi']; ?>"></td>
             <td>
-              <p>SDT</p>
+              <p>Số điện thoại</p>
             </td>
             <td> <input class="form-control" type="text" name="SoDienThoai" value="<?php echo $row['SoDienThoai']; ?>">
             </td>
             <td>
-              <p>Ghi CHu</p>
+              <p>Ghi Chú</p>
             </td>
             <td> <input class="form-control" type="text" name="GhiChu" value="<?php echo $row['GhiChu']; ?>"></td>
             <td></br></td>
-            <td><input type="submit" name="sua" value="FIX"></td>
+            <td><input type="submit" name="sua" value="FIX" style="border:none;padding:10px;border-radius:5px;color:white;background-color:green;font-weight: bold;"></td>
           </tr>
         </form>
       </div>
     </div>
   </div>
-  <?php @include("../menu.php"); ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
