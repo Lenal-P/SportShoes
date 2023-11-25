@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="register.css">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../home.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 
 </head>
