@@ -48,7 +48,7 @@ if (isset($_POST['login'])) {
   <div id="login" class="container">
     </br>
     <div id="login-row" class="row justify-content-center align-items-center">
-      <div id="login-column" style="background-color:rgba(180, 180, 180, 0.3);" class="col-md-6">
+      <div id="login-column" style="background-color:rgba(180, 180, 180, 0.3);padding:20px 0;border-radius:5px;" class="col-md-6">
         <div id="login-box" class="col-md-12">
           <h2 class="text-center text-info" style="text-transform:uppercase;">Đăng Nhập Tài Khoản Của Bạn</h2></br>
           <h4 style="text-align:center;color:red">

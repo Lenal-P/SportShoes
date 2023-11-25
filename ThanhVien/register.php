@@ -43,10 +43,10 @@ if (isset($_POST['submit'])) {
 
 </head>
 
-<body>
+<body style="background-color:#f8f8fc;">
 
   <div class="container">
-    <nav class="navbar navbar-expand-lg header-custom sticky-top">
+    <nav class="navbar navbar-expand-lg header-custom sticky-top" style="background-color:transparent;">
       <div class="container-fluid font-header-custom">
         <a class="navbar-branch" href="../index.php">
 
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="login.php">ĐĂNG NHẬP</a>
+              <a class="nav-link active" href="./login.php" style="background-color:none;position:absolute;right:-15%;border-radius:10px";>ĐĂNG NHẬP</a>
             </li>
 
 
