@@ -47,7 +47,9 @@ if (isset($_POST['sua']) && $_POST['old-password'] != "" && $_POST['new-password
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../home.css">
+  <link rel="stylesheet" href="../menu.css">
+  <link rel="stylesheet" href="../footer.css">
   <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="../image/png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
@@ -86,89 +88,30 @@ if (isset($_POST['sua']) && $_POST['old-password'] != "" && $_POST['new-password
 </head>
 
 <body>
-  <div class="sticky-top">
-    <div class="menu sticky-top">
-      <nav class="navbar navbar-expand-lg header-custom" style="background-color: #248A32;">
-        <div class="container-fluid font-header-custom">
-          <a class="navbar-branch" href="../index.php">
-            <img src="../image/logo/logochinh.png" height="80">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.php" style="color:white;">TẤT CẢ SẢN PHẨM</a>
-              </li>
+  <?php @include("../menu.php"); ?>
 
-              <!-- Search -->
-
-
-              <li class="nav-item">
-                <a class="nav-link" href="../cart" style="color:white;">GIỎ HÀNG</a>
-              </li>
-              <?php if (isset($_SESSION['TenDangNhap'])) { ?>
-                <li class="nav-item">
-                  <a class="nav-link" href="../contact.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>"
-                    style="color:white;">LIÊN HỆ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../ThanhVien/logout.php" style="color:white;">ĐĂNG XUẤT</a>
-                </li>
-                <li class="nav-item">
-                  <a type="button" class="btn btn-secondary"
-                    href="../ThanhVien/profile.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>" id="btn"
-                    style="color:white;"></span>
-                    <?php echo $_SESSION['HoVaTen'] ?>
-                  </a>
-                </li>
-              <?php } else { ?>
-                <li><a type="button" class="btn btn-secondary" href="../ThanhVien/login.php">&nbsp;ĐĂNG NHẬP </a></li>
-              <?php } ?>
-            </ul>
-            <?php
-            if (isset($_SESSION['cart'])) {
-              ?>
-              <h5></h5>
-              <?php
-            }
-            ?>
-          </div>
-        </div>
-      </nav>
+  <div class="container" style="height:500px;">
+    <br>
+    <hr>
+    <div class="card bg-light" style="width: 100%;height:80%">
+      <article class="card-body mx-auto" style="width: 100%;">
+        <h4 class="card-title mt-3 text-center">Đổi mật khẩu</h4>
+        <form action="" method="POST" style="display:flex;flex-direction:column;margin: 0 30%;width:60%;">
+          <label for="password"><b>Mật khẩu cũ&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</b></label>
+          <input type="password" name="old-password" required style="width:70%;height:30px;transform:scale(1);border-radius:5px;">
+          <label for="password-repeat"><b> Mật khẩu mới &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
+          <input type="password" name="new-password" required style="width:70%;height:30px;transform:scale(1);border-radius:5px;">
+          <label for="password-repeat"><b>Nhập lại mật khẩu</b></label>
+          <input type="password" name="new-password-repeat" required style="width:70%;height:30px;transform:scale(1);border-radius:5px;">
+          </br>
+          </br>
+          <input type="submit" class="btn btn-primary btn-block" name="sua" value="Sửa"
+            style="float: right; width:100px; ;">
+        </form>
+      </article>
     </div>
-
-    <div class="container">
-      <br>
-      <hr>
-      <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
-          <h4 class="card-title mt-3 text-center">Đổi mật khẩu</h4>
-          <form action="" method="POST">
-            <label for="password"><b>Mật khẩu cũ&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-            <input type="password" name="old-password" required style="width: 220px;">
-            <label for="password-repeat"><b> Mật khẩu mới &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-            <input type="password" name="new-password" required style="width: 217px;">
-            <label for="password-repeat"><b>Nhập lại mật khẩu</b></label>
-            <input type="password" name="new-password-repeat" required style="width: 220px;">
-            </br>
-            </br>
-            <input type="submit" class="btn btn-primary btn-block" name="sua" value="Sửa"
-              style="float: right; width:100px; ;">
-          </form>
-        </article>
-      </div>
-      <hr class="hr--large">
-      <div class="space" style="text-align: center; background-color: #white ">
-
-        <p class="site-footer__copyright-content">
-          © 2023,
-          <a href="http://localhost/SportShoes/index.php" \title="" style=" color: red"> Nhóm 5</a>
-      </div>
-    </div>
+  </div>
+  <?php @include("../footer.php"); ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

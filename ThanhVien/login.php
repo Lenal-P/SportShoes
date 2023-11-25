@@ -40,25 +40,17 @@ if (isset($_POST['login'])) {
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="../home.css">
   <link rel="stylesheet" href="login.css">
-  <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
-  <div class="menu">
-    <!-- <nav style="display: inline-block" class="navbar navbar-expand-lg navbar-light bg-light">
-      <a style=" float: left" class="navbar-brand" href="#">CỬA HÀNG LATOP</a>
-      </nav> -->
-
-  </div>
+<body style="background-color:#f8f8fc;">
   <div id="login" class="container">
-
     </br>
-    <!-- <div style="width: 50%;"> -->
     <div id="login-row" class="row justify-content-center align-items-center">
-      <div style="background:#CCFFFF	" id="login-column" class="col-md-6">
+      <div id="login-column" style="background-color:rgba(180, 180, 180, 0.3);" class="col-md-6">
         <div id="login-box" class="col-md-12">
-          <h2 class="text-center text-info">Đăng Nhập Tài Khoản Của Bạn</h2> </br>
+          <h2 class="text-center text-info" style="text-transform:uppercase;">Đăng Nhập Tài Khoản Của Bạn</h2></br>
           <h4 style="text-align:center;color:red">
             <?php if (isset($checkLogin)) {
               echo $checkLogin;
