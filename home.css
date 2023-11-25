@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,700;1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+.header-custom {
+    background-color: #CCFFFF
+}
+.font-header-custom{
+    font-weight: 600;
+    font-size: 19px
+}
+.navbar-custom {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+.text-center{
+   text-align: center;
+}
+.body{
+    background: #343d46;
+    z-index: -100;
+}
+   
+.box{
+    margin: 100px auto;
+    width: 300px;
+    height: 50px;
+}
+
+.card {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 24%;
+}
+
+.card-body {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-img-top {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body h2 {
+    height: 40px;
+    font-size: 16px;
+}
+
+.card-body h6 {
+    height: 20px;
+    font-size: 14px;
+    color: rgb(250, 16, 16);
+}
+
+.card-body input{
+    border: none;
+    text-transform: uppercase;
+    background-color: rgb(222, 90, 0) !important;
+    font-weight: bold;
+    transition: 0.3s;
+    &:hover {
+        transform: scale(1.1);
+        background-color: rgb(244, 121, 38) !important;
+        color: white;
+    }
+}
+
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
