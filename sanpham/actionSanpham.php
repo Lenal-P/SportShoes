@@ -84,9 +84,7 @@ session_start();
                     <h2>
                       <?php echo $row_category_product['TenSanPham']; ?>
                     </h2>
-                    <h6>Giá:
-                      <?php echo $row_category_product['GiaBan']; ?> VND
-                    </h6>
+                    <h6>Giá: <?php echo number_format($row_category_product['GiaBan'], 0, ',', '.') ?> VND</h6>
                     <?php if (isset($_SESSION['TenDangNhap'])) {
                       ?>
                       <input type="submit" class="btn btn-info" name='submit' value="Mua">
@@ -115,7 +113,7 @@ session_start();
                       <?php echo $row_search['TenSanPham']; ?>
                     </h2>
                     <h6>Giá:
-                      <?php echo $row_search['GiaBan']; ?> VND
+                      <?php echo number_format($row_search['GiaBan'], 0, ',', '.') ?> VND
                     </h6>
                     <?php if (isset($_SESSION['TenDangNhap'])) {
                       ?>

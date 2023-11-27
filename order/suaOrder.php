@@ -82,7 +82,7 @@ $row_getCus = mysqli_fetch_array($query_getCus);
             </label>
             </br>
             <label>Tổng Tiền: &nbsp; &nbsp;
-              <?php echo $row['GiaTien'] ?> đ
+              <?php echo number_format($row['GiaTien'], 0, ',', '.') ?> đ
             </label>
             </br>
             <td>Địa chỉ</td>

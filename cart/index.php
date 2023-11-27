@@ -73,7 +73,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
                     <?= $value['qty'] ?>
                   </td>
                   <td>
-                    <?= $value['GiaBan'] ?> VND
+                    <?php echo number_format($value['GiaBan'], 0, ',', '.') ?> VND
                   </td>
                   <td><a href="actionCart.php?id_product=<?= $key ?>">Xóa</a></td>
                 </tbody>
@@ -97,7 +97,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
 
             ?>
             <h4 style="float: right;color:red;">
-              <?= $allMoney ?> VND
+              <?php echo number_format($allMoney, 0, ',', '.') ?> VND
             </h4>
             <h5 style="float: right; width: 3%;"> Tổng tiền
               <?= $allAmount ?> sản phẩm:

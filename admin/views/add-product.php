@@ -15,8 +15,8 @@ $Img = $_POST['Img'];
 $ID_DanhMuc = $_POST['danhmuc'];
 $ID_NCC = $_POST['nhacungcap'];
 $BanChay='ko';
-  $sql_add = "INSERT INTO sanpham(ID_DanhMuc,ID_NhaCungCap,TenSanPham,MoTa,GiaBan,SoLuong,Img,BanChay) VALUES('".$ID_DanhMuc."','".$ID_NCC."','".$TenSanPham."','".$MoTa."','".$GiaBan."','".$SoLuong."','".$Img."','".$BanChay."')";
-  mysqli_query($mysqli,$sql_add);
+    $sql_add = "INSERT INTO sanpham(ID_DanhMuc,ID_NhaCungCap,TenSanPham,MoTa,GiaBan,SoLuong,Img,BanChay) VALUES('".$ID_DanhMuc."','".$ID_NCC."','".$TenSanPham."','".$MoTa."','".$GiaBan."','".$SoLuong."','".$Img."','".$BanChay."')";
+    mysqli_query($mysqli,$sql_add);
 }
 ?>
 

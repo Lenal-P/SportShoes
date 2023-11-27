@@ -96,7 +96,7 @@ $query_product = mysqli_query($mysqli, $sql_product);
                     <?php echo $row_product['TenSanPham']; ?>
                   </h2>
                   <h6>Giá:
-                    <?php echo $row_product['GiaBan']; ?> VND
+                    <?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?> VND
                   </h6>
                   <input type="submit" class="btn btn-info" name='submit' value="Mua">
                 </div>
@@ -119,7 +119,7 @@ $query_product = mysqli_query($mysqli, $sql_product);
                 <?php echo $row_product['TenSanPham']; ?>
               </h2>
               <h6>Giá:
-                <?php echo $row_product['GiaBan']; ?> VND
+                <?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?> VND
               </h6>
               <input type="submit" class="btn btn-info" name='submit' value="Xem Thông Tin">
             </div>

@@ -50,7 +50,7 @@ $row_getCus = mysqli_fetch_array($query_getCus);
           </label>
           </br>
           <label>Tổng Tiền: &nbsp; &nbsp;
-            <?php echo $row_getOrder['GiaTien'] ?>
+            <?php echo number_format($row_getOrder['GiaTien'], 0, ',', '.') ?>
           </label>
           </br>
           <label>Địa chỉ: &nbsp; &nbsp;
@@ -111,7 +111,7 @@ $row_getCus = mysqli_fetch_array($query_getCus);
                   <?= $value['qty'] ?>
                 </td>
                 <td>
-                  <?= $value['GiaBan'] ?> Đồng
+                  <?php echo number_format($value['GiaBan'], 0, ',', '.') ?> Đồng
                 </td>
               </tbody>
               <?php
@@ -134,7 +134,7 @@ $row_getCus = mysqli_fetch_array($query_getCus);
 
           ?>
           <h5 style="float: right;">Tổng tiền :
-            <?= $allMoney ?> Đồng
+            <?php echo number_format($allMoney, 0, ',', '.') ?> Đồng
           </h5>
           <h5 style="float: right; width: 12.5%;">
             <?= $allAmount ?>

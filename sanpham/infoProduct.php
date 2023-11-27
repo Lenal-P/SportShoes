@@ -43,7 +43,7 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
                     <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post"
                         action="../cart/add.php?id=<?php echo $row_product['ID_SanPham']; ?>">
                         <input type="hidden" name="sp_ten" id="sp_ten" value="<?php echo $row_product['TenSanPham']; ?>">
-                        <input type="hidden" name="sp_gia" id="sp_gia" value="<?php echo $row_product['GiaBan']; ?>">
+                        <input type="hidden" name="sp_gia" id="sp_gia" value="<?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?>">
                         <input type="hidden" name="hinhdaidien" id="hinhdaidien"
                             value="<?php echo $row_product['Img']; ?>">
                         <div class="wrapper row">
@@ -64,7 +64,7 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
                                 </p>
 
                                 <h4 class="price">Giá: <span>
-                                        <?php echo $row_product['GiaBan']; ?> VND
+                                    <?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?> VND
                                     </span></h4>
                                 <p class="vote"><strong>100%</strong> hàng <strong>Chất lượng</strong>, đảm bảo
                                     <strong>Uy
@@ -126,7 +126,7 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
                         </div>
                         <div class="action">
                             <input type="submit" class="btn btn-primary" name='comment' value="Bình luận"
-                                style="float:right; background-color: #248A32">
+                                style="float:right;">
                         </div>
                     <?php
                     }

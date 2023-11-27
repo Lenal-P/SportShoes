@@ -58,7 +58,7 @@ $query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
             <td><?php echo $row_getOrder['ThoiGianLap']; ?></td> 
             <td><?php echo $row_getOrder['DiaChi']; ?></td>
             <td><?php echo $row_getOrder['GhiChu']; ?></td>  
-            <td><?php echo $row_getOrder['GiaTien']; ?></td>
+            <td><?php echo number_format($row_getOrder['GiaTien'], 0, ',', '.') ?></td>
             <td><?php echo $row_getOrder['SoDienThoai']; ?></td>
           
       </tbody>
@@ -101,7 +101,7 @@ $query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
             <td style="color: red;"><?php echo $row_NoOrder['ThoiGianLap']; ?></td> 
             <td style="color: red;"><?php echo $row_NoOrder['DiaChi']; ?></td>
             <td style="color: red;"><?php echo $row_NoOrder['GhiChu']; ?></td>  
-            <td style="color: red;"><?php echo $row_NoOrder['GiaTien']; ?></td>
+            <td style="color: red;"><?php echo number_format($row_NoOrder['GiaTien'], 0, ',', '.') ?></td>
             <td style="color: red;"><?php echo $row_NoOrder['SoDienThoai']; ?></td>
           
       </tbody>
