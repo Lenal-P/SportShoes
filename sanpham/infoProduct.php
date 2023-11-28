@@ -40,8 +40,7 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
         <div class="container mt-4">
             <div class="card">
                 <div class="container-fliud">
-                    <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post"
-                        action="../cart/add.php?id=<?php echo $row_product['ID_SanPham']; ?>">
+                    <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post" action="../cart/add.php?id=<?php echo $row_product['ID_SanPham']; ?>">
                         <input type="hidden" name="sp_ten" id="sp_ten" value="<?php echo $row_product['TenSanPham']; ?>">
                         <input type="hidden" name="sp_gia" id="sp_gia" value="<?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?>">
                         <input type="hidden" name="hinhdaidien" id="hinhdaidien"
@@ -77,7 +76,9 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
                                     </div>
                                     <div class="action">
                                         <input type="submit" class="btn btn-primary" name='submit' value="Mua hàng">
-                                        <input type="submit" class="btn btn-add-cart" name='submit' value="Thêm vào giỏ hàng">
+                                        <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post" action="../cart/add.php?id=<?php echo $row_product['ID_SanPham']; ?>">
+                                            <input type="submit" class="btn btn-add-cart" name='submit' value="Thêm vào giỏ hàng">
+                                        </form>
                                     </div>
                                 <?php } else { ?>
                                     <p style="color:red !important;text-transform:uppercase;">Bạn cần đăng nhập để mua hàng hoặc bình luận !</p>

@@ -39,6 +39,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
           <table class="table" style="vertical-align: middle;">
             <thead>
               <tr style="vertical-align: middle;">
+                <th><input type="checkbox" id="selectAllCheckbox" class="checkBoxCart"></th>
                 <th scope="col">STT</th>
                 <th scope="col">ID</th>
                 <th scope="col">Tên sản phẩm</th>
@@ -59,6 +60,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
                 <?php foreach ($_SESSION['cart'] as $key => $value) {
                   $i++;
                   ?>
+                  <td><input type="checkbox" name="selectedItems[]" class="checkBoxCart" value="<?= $key ?>"></td>
                   <td>
                     <?= $i ?>
                   </td>
@@ -139,7 +141,20 @@ $row = mysqli_fetch_array($query_ThanhVien);
   </div>
   <?php @include("../footer.php"); ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#selectAllCheckbox').change(function () {
+      var isChecked = $(this).prop('checked');
+      $('.checkBoxCart').prop('checked', isChecked);
+    });
+
+    $('.checkBoxCart').change(function () {
+      var anyUnchecked = $('.checkBoxCart:not(:checked)').length > 0;
+      $('#selectAllCheckbox').prop('checked', !anyUnchecked);
+    });
+  });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
