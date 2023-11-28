@@ -16,10 +16,10 @@ $row = mysqli_fetch_array($query_ThanhVien);
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="./cart.css">
   <link rel="stylesheet" href="../home.css">
   <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
+  <link rel="stylesheet" href="./cart.css">
   <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 
@@ -60,7 +60,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
                 <?php foreach ($_SESSION['cart'] as $key => $value) {
                   $i++;
                   ?>
-                  <td><input type="checkbox" name="selectedItems[]" class="checkBoxCart" value="<?= $key ?>"></td>
+                  <td><input type="checkbox" name="selectedItems[]" class="checkBoxCart checkbox" value="<?= $key ?>"></td>
                   <td>
                     <?= $i ?>
                   </td>
@@ -91,14 +91,12 @@ $row = mysqli_fetch_array($query_ThanhVien);
           </table>
           <?php if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $value) {
-              $Money = $value['qty'] * $value['GiaBan'];
               $amount = $value['qty'];
-              $allMoney += $Money;
               $allAmount += $amount;
             }
 
             ?>
-            <h4 style="float: right;color:red;">
+            <h4 id="totalMoney" style="float: right;color:red;">
               <?php echo number_format($allMoney, 0, ',', '.') ?> VND
             </h4>
             <h5 style="float: right; width: 3%;"> Tổng tiền
@@ -144,15 +142,65 @@ $row = mysqli_fetch_array($query_ThanhVien);
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
   $(document).ready(function () {
+    initializeTotal(); // Gọi hàm khi trang được tải
+
+    function initializeTotal() {
+      $('#totalMoney').text('0 VND');
+      $('#totalAmount').text('0');
+    }
+
+    function updateTotal() {
+      var totalMoney = 0;
+      var totalAmount = 0;
+
+      // ... (giữ nguyên phần còn lại của hàm updateTotal)
+
+      $('#totalMoney').text(numberWithCommas(totalMoney) + ' VND');
+      $('#totalAmount').text(totalAmount);
+    }
     $('#selectAllCheckbox').change(function () {
       var isChecked = $(this).prop('checked');
       $('.checkBoxCart').prop('checked', isChecked);
+      updateTotal();
     });
 
     $('.checkBoxCart').change(function () {
       var anyUnchecked = $('.checkBoxCart:not(:checked)').length > 0;
       $('#selectAllCheckbox').prop('checked', !anyUnchecked);
+      updateTotal();
     });
+
+    $('.checkbox').change(function () {
+      updateTotal();
+    });
+
+    $('.selectAllCheckbox').change(function () {
+      $('.checkbox').prop('checked', $(this).prop('checked'));
+      updateTotal();
+    });
+
+    function updateTotal() {
+      var totalMoney = 0;
+      var totalAmount = 0;
+
+      $('.checkbox:checked').each(function () {
+        var row = $(this).closest('tr');
+        var price = parseFloat(row.find('td:eq(6)').text().replace(/\D/g, ''));
+        var quantity = parseInt(row.find('td:eq(5)').text());
+        var subtotal = price * quantity;
+
+        totalMoney += subtotal;
+        totalAmount += quantity;
+      });
+
+      $('#totalMoney').text(numberWithCommas(totalMoney) + ' VND');
+      $('#totalAmount').text(totalAmount);
+    }
+
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    
   });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

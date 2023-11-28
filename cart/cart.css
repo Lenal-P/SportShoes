@@ -36,7 +36,8 @@ h5 {
 }
 
 .container .btn-info {
-    margin-right: -45%;
+    position: absolute;
+    right: 10%;
     font-size: 20px;
     background-color: rgb(244, 121, 38);
     border: none;
