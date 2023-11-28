@@ -31,10 +31,10 @@ session_start();
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="./actionSanPham.css">
   <link rel="stylesheet" href="../home.css">
   <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
-  <link rel="stylesheet" href="../actionSanPham.css">
   <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 
@@ -51,8 +51,7 @@ session_start();
         <?php
         while ($row_getList = mysqli_fetch_array($query_getList)) {
           ?>
-          <a class="btn btn-primary" href="actionSanpham.php?danhmucsanpham&id=<?php echo $row_getList['ID_DanhMuc'] ?>"
-            style="background-color: #248A32;border-color:#248A32 ;"><?php echo $row_getList['TenDanhMuc'] ?></a>
+          <a class="btn btn-primary" href="actionSanpham.php?danhmucsanpham&id=<?php echo $row_getList['ID_DanhMuc'] ?>"><?php echo $row_getList['TenDanhMuc'] ?></a>
           </br>
           </br>
           <?php
