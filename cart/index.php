@@ -20,7 +20,6 @@ $row = mysqli_fetch_array($query_ThanhVien);
   <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
   <link rel="stylesheet" href="./cart.css">
-  <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -93,23 +92,22 @@ $row = mysqli_fetch_array($query_ThanhVien);
     $('.checkBoxCart:checked').each(function() {
       var productId = $(this).data('ID_SanPham');
       var quantity = parseInt($(this).closest('tr').find('.quantity-input').val());
-
-      // if (!isNaN(quantity) && quantity > 0) {
-      //     var displayQty = parseInt($(this).closest('tr').find('.display-qty').text());
-      //     selectedItems.push({productId: productId, quantity: quantity, displayQty: displayQty});
-      // }
     });
 
     if (selectedItems.length > 0) {
         // Gửi dữ liệu đến trang phuongthucthanhtoan.php bằng phương thức POST
         $.post('../order/phuongthucthanhtoan.php', {selectedItems: selectedItems}, function(response) {
-            // Xử lý phản hồi từ trang phuongthucthanhtoan.php (nếu cần)
+            console.log(response);
+        });
+        $.post('../order/saveorder.php', {selectedItems: selectedItems}, function(response) {
             console.log(response);
         });
     } else {
         // Gửi dữ liệu đến trang phuongthucthanhtoan.php bằng phương thức POST
         $.post('../order/phuongthucthanhtoan.php', {selectedItems: selectedItems}, function(response) {
-            // Xử lý phản hồi từ trang phuongthucthanhtoan.php (nếu cần)
+            console.log(response);
+        });
+        $.post('../order/saveorder.php', {selectedItems: selectedItems}, function(response) {
             console.log(response);
         });
     }
@@ -124,10 +122,9 @@ $row = mysqli_fetch_array($query_ThanhVien);
     <div class="tableInfo">
       <?php
       if (isset($_SESSION['ID_ThanhVien'])) {
-
+        if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
         ?>
         <form method="POST" action="../order/phuongthucthanhtoan.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>">
-          <input type="hidden" name="selectedItems" value="<?php echo implode(',', array_keys($_SESSION['cart'])); ?>">
           <table class="table" style="vertical-align: middle;">
             <thead>
               <tr style="vertical-align: middle;">
@@ -142,12 +139,12 @@ $row = mysqli_fetch_array($query_ThanhVien);
               </tr>
             </thead>
             <?php
-            if (isset($_SESSION['cart'])) {
               $i = 0;
               $allMoney = 0;
               $allAmount = 0;
               $displayQtyArray = array(); // Mảng tạm để lưu displayQty
               ?>
+              <input type="hidden" name="selectedItems" value="<?php echo implode(',', array_keys($_SESSION['cart'])); ?>">
               <tbody style="border-bottom: 2px solid #dee2e6;">
                 <?php foreach ($_SESSION['cart'] as $key => $value) {
                   $i++;
@@ -192,11 +189,6 @@ $row = mysqli_fetch_array($query_ThanhVien);
                 </tbody>
                 <?php
                 }
-            } else {
-            ?>
-              <h4>Không có gì trong giỏ hàng</h4>
-              <?php
-            }
             ?>
           </table>
           <?php if (isset($_SESSION['cart'])) {?>
@@ -210,7 +202,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
 
             <?php
             $_SESSION['$allMoney'] = $allMoney;
-            $_SESSION['$allAmount'] = $allAmount;
+            $_SESSION['$allAmount'] = $displayQty;
           }
           ?>
           </br>
@@ -221,6 +213,11 @@ $row = mysqli_fetch_array($query_ThanhVien);
       </a>
       </form>
       <?php
+      } else {
+        ?>
+          <h4>Không có gì trong giỏ hàng!</h4>
+        <?php
+      }
       } else {
       ?>
         <h4>Vui lòng đăng nhập để mua hàng</h4>

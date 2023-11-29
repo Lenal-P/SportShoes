@@ -35,18 +35,16 @@ session_start();
   <link rel="stylesheet" href="../home.css">
   <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
-  <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 
 </head>
-
 <body>
   <div class="sticky-top">
     <?php @include("../menu.php"); ?>
 
     <div class="position-fixed" style="align-items:center;top:225px; left:15px;">
       <ul class="nav flex-column">
-        <h4>Liệt kê theo</h4>
+        <h4 style="color:white">Liệt kê theo</h4>
         </br>
         <?php
         while ($row_getList = mysqli_fetch_array($query_getList)) {
@@ -60,12 +58,12 @@ session_start();
       </ul>
     </div>
 
-    <div class="container">
+    <div class="container" style="height:1000px;">
       <div class="container-fluid">
         <div class="row d-inline-flex">
           </br>
           <div id="allproduct">
-            <div style="text-align: center;">
+            <div style="text-align:center;margin-top:20px">
               <h1>Tất cả sản phẩm</h1>
             </div>
             <?php
@@ -104,7 +102,7 @@ session_start();
               <?php
               while ($row_search = mysqli_fetch_array($query_search)) {
                 ?>
-                <form class="card" style="width: 50%; float:left"
+                <form class="card" style="float:left"
                   action="infoProduct.php?id_product=<?php echo $row_search['ID_SanPham']; ?>" method="POST">
                   <div class="d-flex flex-column text-center border">
                     <img src="../image/product/<?php echo $row_search['Img']; ?>" />
@@ -137,7 +135,7 @@ session_start();
     </div>
   <?php @include("../footer.php"); ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 

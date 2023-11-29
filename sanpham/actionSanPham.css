@@ -11,10 +11,6 @@ body{
     z-index: -100;
 }
 
-.container {
-    height: 80vh;
-}
-
 .d-inline-flex {
     width: 100% !important;
     height: 400px;

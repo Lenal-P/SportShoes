@@ -27,7 +27,6 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
     <link rel="stylesheet" href="../menu.css">
     <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="./infoProduct.css">
-    <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 
 </head>
@@ -76,14 +75,12 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
                                         <label for="soluong">Sản phẩm có sẵn: <?php echo $row_product['SoLuong']; ?></label>
                                     </div>
                                     <div class="action">
-                                        <input type="submit" class="btn btn-primary" name='submit' value="Mua hàng">
-                                        <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post" action="../cart/add.php?id=<?php echo $row_product['ID_SanPham']; ?>">
-                                            <input type="submit" class="btn btn-add-cart" name='submit' value="Thêm vào giỏ hàng">
-                                        </form>
+                                        <input type="submit" class="btn btn-primary" name='submit' value="Mua hàng" readonly="">
+                                        <input type="submit" class="btn btn-add-cart" name='submit' value="Thêm vào giỏ hàng" readonly="">
                                     </div>
                                 <?php } else { ?>
                                     <p style="color:red !important;text-transform:uppercase;">Bạn cần đăng nhập để mua hàng hoặc bình luận !</p>
-                                    <a href="../ThanhVien/login.php"><input type="login" class="btn btn-primary" name='submit' value="Đăng nhập"></a>
+                                    <a href="../ThanhVien/login.php"><input type="login" class="btn btn-primary" name='submit' value="Đăng nhập" readonly=""></a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -142,7 +139,7 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
     </main>
     <?php @include("../footer.php"); ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 

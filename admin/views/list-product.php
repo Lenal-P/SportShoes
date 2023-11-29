@@ -15,7 +15,7 @@ if (isset($_POST['tukhoa'])) {
         <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
             <h5 class="m-0 ">Danh sách sản phẩm</h5>
             <div class="form-search form-inline">
-                <form action="" method="POST">
+                <form action="" method="POST" style="display:flex;gap:10px">
                     <input type="" class="form-control form-search" placeholder="Tìm kiếm" name="tukhoa">
                     <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary" name="tim">
                 </form>
@@ -49,7 +49,8 @@ if (isset($_POST['tukhoa'])) {
                       <td><?php echo $row_search['MoTa'];?></td>
                       <td><?php echo $row_search['SoLuong'];?></td>        
                       <td> <img style="width: 276px;height: 247px;" src="../image/product/<?php echo $row_search['Img'];?>"/></td>    
-                      <td><?php echo $row_search['GiaBan'];?></td>
+                      <td><?php echo number_format($row_search['GiaBan'], 0, ',', '.'); ?></td>
+                      
                       <td>
                         <a class="btn btn-primary" href="views/deleteProduct.php?id_pro=<?php echo $row_search['ID_SanPham'];?>">Xóa</a> 
                     </br>
@@ -72,8 +73,8 @@ if (isset($_POST['tukhoa'])) {
           <td><?php echo $row['TenSanPham'];?></td>
           <td><?php echo $row['MoTa'];?></td>
           <td><?php echo $row['SoLuong'];?></td>        
-          <td> <img style="width: 276px;height: 247px;" src="../image/product/<?php echo $row['Img'];?>"/></td>    
-          <td><?php echo $row['GiaBan'];?></td>
+          <td><img style="width: 276px;height: 247px;" src="../image/product/<?php echo $row['Img'];?>"/></td>    
+          <td><?php echo number_format($row['GiaBan'], 0, ',', '.'); ?></td>
           <td>
             <a class="btn btn-primary" href="views/deleteProduct.php?id_pro=<?php echo $row['ID_SanPham'];?>">Xóa</a> 
         </br>

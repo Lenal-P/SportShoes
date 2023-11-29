@@ -49,7 +49,6 @@ if (isset($_POST['sua']) && $_POST['old-password'] != "" && $_POST['new-password
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="../footer.css">
   <link rel="stylesheet" href="../menu.css">
-  <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="../image/png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 </head>
@@ -79,7 +78,7 @@ if (isset($_POST['sua']) && $_POST['old-password'] != "" && $_POST['new-password
   </div>
   <?php @include("../footer.php"); ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 

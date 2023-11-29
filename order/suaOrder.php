@@ -11,36 +11,36 @@ if (isset($_GET['id'])) {
   echo "Empty query!";
   exit;
 }
-if (!isset($ID_Order)) {
-  echo "Empty isbn! check again!";
-  exit;
-}
+
 if (isset($_POST['sua'])) {
   $DiaChi = $_POST['DiaChi'];
   $GhiChu = $_POST['GhiChu'];
   $SoDienThoai = $_POST['SoDienThoai'];
-  if ($DiaChi == "") {
-    echo "vui long nhap DiaChi!<br />";
-  }
-  if ($SoDienThoai == "") {
-    echo "vui long nhap SoDienThoai<br />";
-  }
-  if ($DiaChi != "" && $SoDienThoai != "") {
+  
+  if ($DiaChi == "" || $SoDienThoai == "") {
+    echo "Vui lòng nhập đầy đủ Địa chỉ và Số điện thoại!";
+  } else {
     $sql_fix = "UPDATE  hoadon  SET DiaChi = '" . $DiaChi . "', GhiChu = '" . $GhiChu . "', SoDienThoai = '" . $SoDienThoai . "' WHERE ID_HoaDon= '$_GET[id]'";
     mysqli_query($mysqli, $sql_fix);
-    header("location:phuongthucthanhtoan.php?id={$ID_ThanhVien}");
+    header("location: phuongthucthanhtoan.php?id={$ID_Order}");
+    exit; // Đặt exit để ngăn mã tiếp tục thực hiện sau header
   }
 }
 ?>
 
-<?php
+<?php var_dump($_SESSION);
+    
+    
+    var_dump($_GET);
+    ?>
 
-$sql_getOrder = "SELECT * FROM hoadon where ID_HoaDon='$ID_Order' LIMIT 1";
-$query_getOrder = mysqli_query($mysqli, $sql_getOrder);
-$row = mysqli_fetch_array($query_getOrder);
-$sql_getCus = "SELECT * FROM thanhvien where ID_ThanhVien='$ID_ThanhVien' ORDER BY ID_ThanhVien DESC";
-$query_getCus = mysqli_query($mysqli, $sql_getCus);
-$row_getCus = mysqli_fetch_array($query_getCus);
+<?php
+  $sql_getOrder = "SELECT * FROM hoadon where ID_HoaDon='$ID_Order' ORDER BY ID_HoaDon LIMIT 1 ";
+  $query_getOrder = mysqli_query($mysqli, $sql_getOrder);
+  $row = mysqli_fetch_array($query_getOrder);
+  $sql_getCus = "SELECT * FROM thanhvien where ID_ThanhVien='$ID_ThanhVien' ORDER BY ID_ThanhVien DESC";
+  $query_getCus = mysqli_query($mysqli, $sql_getCus);
+  $row_getCus = mysqli_fetch_array($query_getCus);
 ?>
 <!DOCTYPE html>
 <html style="scroll-behavior: smooth">
@@ -55,7 +55,6 @@ $row_getCus = mysqli_fetch_array($query_getCus);
   <link rel="stylesheet" href="../home.css">
   <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
-  <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 
 </head>
@@ -97,14 +96,17 @@ $row_getCus = mysqli_fetch_array($query_getCus);
             </td>
             <td> <input class="form-control" type="text" name="GhiChu" value="<?php echo $row['GhiChu']; ?>"></td>
             <td></br></td>
-            <td><input type="submit" name="sua" value="FIX" style="border:none;padding:10px;border-radius:5px;color:white;background-color:green;font-weight: bold;"></td>
+            <td>
+            <a href="./phuongthucthanhtoan.php">
+              <input type="submit" name="sua" value="FIX" style="border:none;padding:10px;border-radius:5px;color:white;background-color:green;font-weight: bold;"></td>
+            </a>  
           </tr>
         </form>
       </div>
     </div>
   </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 

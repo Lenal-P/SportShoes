@@ -12,8 +12,7 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/solid.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -116,19 +115,6 @@ if (!isset($_SESSION['admin'])) {
                             <li><a href="?view=list-user">Danh sách</a></li>
                         </ul>
                     </li>
-
-                    <!-- <li class="nav-link"><a>Bài viết</a>
-                        <ul class="sub-menu">
-                            <li><a>Thêm mới</a></li>
-                            <li><a>Danh sách</a></li>
-                            <li><a>Thêm danh mục</a></li>
-                            <li><a>Danh sách danh mục</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-link"><a>Sản phẩm</a></li>
-                    <li class="nav-link"><a>Đơn hàng</a></li>
-                    <li class="nav-link"><a>Hệ thống</a></li> -->
-
                 </ul>
             </div>
             <div id="wp-content">
@@ -143,7 +129,7 @@ if (!isset($_SESSION['admin'])) {
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/app.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

@@ -34,9 +34,9 @@
                 <td><?php echo $num ?></td>
                 <td><?php echo $row_Order['ID_HoaDon']?></td>
                 <td><?php echo $row_Order['ID_ThanhVien']?></td>
-                 <td><?php echo $row_Order['ThoiGianLap']?></td>
+                <td><?php echo $row_Order['ThoiGianLap']?></td>
                 <td><?php echo $row_Order['DiaChi']?></td>
-                <td><?php echo $row_Order['GiaTien']?></td>
+                <td><?php echo number_format($row_Order['GiaTien'], 0, ',', '.')?></td>
          </tr>
 
 <?php
@@ -48,8 +48,7 @@
  </table>
  
             <nav aria-label="Page navigation example">
-                  <h4 style="float: right;">Tổng tiền :<?= $AllMoney ?> Đồng</h4>
-               
+                  <h4 style="float:right;margin-right:10px;color:#0061f2">Tổng tiền: <?php echo number_format($AllMoney, 0, ',', '.')?> Đồng</h4>
             </nav>
         </div>
     </div>

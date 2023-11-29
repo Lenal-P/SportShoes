@@ -35,12 +35,16 @@ if (isset($_POST['dathang'])) {
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../menu.css">
     <link rel="stylesheet" href="../footer.css">
-    <!-- <link rel="stylesheet" href="../themify-icons/themify-icons.css"> -->
     <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 </head>
 
 <body>
     <?php @include("../menu.php"); ?>
+    <?php var_dump($_SESSION);
+    
+    
+    var_dump($_GET);
+    ?>
 
     <main role="main" style="height:120vh;">
         <div class="container mt-4" style="margin:auto;width:100%;">
@@ -66,8 +70,9 @@ if (isset($_POST['dathang'])) {
 
                             if (isset($_POST['selectedItems']) && is_array($_POST['selectedItems'])) {
                                 $selectedItems = $_POST['selectedItems'];
-                                $allMoney = 0;
                                 $i = 0;
+                                $allMoney = 0;
+                                $allAmount = 0;
                             ?>
                                 <div class="tableInfo">
                                     <table class="table">
@@ -108,6 +113,14 @@ if (isset($_POST['dathang'])) {
                                     </table>
                                     <h5 style="width:300%;float:left;color:red;margin-left:50%">Tổng tiền : <?= number_format($allMoney, 0, ',', '.') ?> Đồng</h5>
                                     </br>
+                                    <?php if (isset($_SESSION['cart'])) {
+                                        ?>
+                                        </br>
+                                        <?php
+                                        $_SESSION['$allMoney'] = $allMoney;
+                                        $_SESSION['$allAmount'] = $displayQty;
+                                    }
+                                    ?>
                                 </div>
                             <?php
                             } else {

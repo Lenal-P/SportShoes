@@ -42,7 +42,7 @@
             <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
                 <div class="card-header">DOANH SỐ</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php  echo $AllMoney ?> đ</h5>
+                    <h5 class="card-title"><?php echo number_format($AllMoney, 0, ',', '.') ?> đ</h5>
                     <p class="card-text">Doanh số hệ thống</p>
                 </div>
             </div>

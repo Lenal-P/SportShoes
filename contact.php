@@ -23,7 +23,6 @@ if (isset($_POST['contact'])) {
     <link rel="stylesheet" href="./home.css">
     <link rel="stylesheet" href="./menu.css">
     <link rel="stylesheet" href="./footer.css">
-    <link rel="stylesheet"  href="themify-icons/themify-icons.css">
     <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
   </head>
   <body> 
@@ -50,7 +49,7 @@ if (isset($_POST['contact'])) {
 </div>
   <?php @include("./footer-home.php"); ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </html>

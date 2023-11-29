@@ -4,9 +4,9 @@ session_start();
 if (isset($_SESSION['ID_ThanhVien'])) {
   $ID_ThanhVien=$_SESSION['ID_ThanhVien'];
   $sql_getOrder="SELECT * FROM hoadon where hoadon.ID_ThanhVien=$ID_ThanhVien and hoadon.XuLy='1' ";
-$query_getOrder=mysqli_query($mysqli,$sql_getOrder);
-$sql_NoOrder="SELECT * FROM hoadon where hoadon.ID_ThanhVien=$ID_ThanhVien and hoadon.XuLy!='1' ";
-$query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
+  $query_getOrder=mysqli_query($mysqli,$sql_getOrder);
+  $sql_NoOrder="SELECT * FROM hoadon where hoadon.ID_ThanhVien=$ID_ThanhVien and hoadon.XuLy!='1' ";
+  $query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
 }
 
 
@@ -23,7 +23,6 @@ $query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
   <link rel="stylesheet" href="./home.css">
   <link rel="stylesheet" href="./menu.css">
   <link rel="stylesheet" href="./footer-home.css">
-  <link rel="stylesheet"  href="themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 </head>
 <body> 
@@ -88,14 +87,12 @@ $query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
         </tr>
       </thead>
         <tbody >
-
         <?php
         if (isset($_SESSION['ID_ThanhVien'])) {
           $i=0;
-      while($row_NoOrder = mysqli_fetch_array($query_NoOrder)){
-          $i++;
-      ?>
-
+          while($row_NoOrder = mysqli_fetch_array($query_NoOrder)){
+            $i++;
+          ?>
             <td style="color: red;"><?php echo $i ?></td> 
             <td style="color: red;"><?php echo $row_NoOrder['ID_HoaDon']; ?></td> 
             <td style="color: red;"><?php echo $row_NoOrder['ThoiGianLap']; ?></td> 
@@ -103,16 +100,16 @@ $query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
             <td style="color: red;"><?php echo $row_NoOrder['GhiChu']; ?></td>  
             <td style="color: red;"><?php echo number_format($row_NoOrder['GiaTien'], 0, ',', '.') ?></td>
             <td style="color: red;"><?php echo $row_NoOrder['SoDienThoai']; ?></td>
-          
-      </tbody>
-      <?php
-            }
-          }else{
-            ?>
-            <h4>Không có lịch sử đặt hàng</h4>
-            <?php
+              
+          </tbody>
+          <?php
           }
+        }else{
           ?>
+          <h4>Không có lịch sử đặt hàng</h4>
+          <?php
+        }
+        ?>
       </table>
       </div>
   </div>

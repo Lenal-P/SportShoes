@@ -50,7 +50,6 @@ if (isset($_POST['sua']) && $_POST['HoVaTen'] != "" && $_POST['Email'] != "" && 
   <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
   <link rel="stylesheet" href="./profile.css">
-  <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="../image/png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
   <style type="">
