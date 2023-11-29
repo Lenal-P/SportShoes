@@ -102,7 +102,7 @@ $row_getCus = mysqli_fetch_array($query_getCus);
                 $i++;
                 ?>
                 <td>
-                  <?= $i ?>
+                  <?= $i?>
                 </td>
                 <td>
                   <?= $value['TenSanPham'] ?>

@@ -1,16 +1,15 @@
 <?php
 include("../conection.php");
 session_start();
-
 $ID_ThanhVien = isset($_GET['id']) ? $_GET['id'] : '';
-$sql_getOrder = "SELECT * FROM hoadon WHERE ID_ThanhVien='$ID_ThanhVien' ORDER BY ID_HoaDon DESC";
+$sql_getOrder = "SELECT * FROM hoadon where ID_ThanhVien='$ID_ThanhVien' ORDER BY ID_HoaDon DESC";
 $query_getOrder = mysqli_query($mysqli, $sql_getOrder);
 $row_getOrder = mysqli_fetch_array($query_getOrder);
-$sql_getCus = "SELECT * FROM thanhvien WHERE ID_ThanhVien='$ID_ThanhVien' ORDER BY ID_ThanhVien DESC";
+$sql_getCus = "SELECT * FROM thanhvien where ID_ThanhVien='$ID_ThanhVien' ORDER BY ID_ThanhVien DESC";
 $query_getCus = mysqli_query($mysqli, $sql_getCus);
 $row_getCus = mysqli_fetch_array($query_getCus);
-
 if (isset($_POST['dathang'])) {
+
     $option = isset($_POST['selectPay']) ? $_POST['selectPay'] : false;
     if ($option) {
         if ($_POST['selectPay'] == "shipcod") {
@@ -19,37 +18,40 @@ if (isset($_POST['dathang'])) {
             header('location:finish.php');
         }
     } else {
-        echo "Phương thức thanh toán là bắt buộc";
+        echo "task option is required";
         exit;
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="vi" class="h-100">
 
 <head>
     <meta charset=utf-8>
-    <title>Thanh toán</title>
+    <title>Sản phẩm</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../menu.css">
     <link rel="stylesheet" href="../footer.css">
-    <!-- <link rel="stylesheet" href="../themify-icons/themify-icons.css"> -->
+    <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
+
 </head>
 
 <body>
     <?php @include("../menu.php"); ?>
 
     <main role="main" style="height:120vh;">
+        <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
         <div class="container mt-4" style="margin:auto;width:100%;">
             <div class="py-5 text-center">
                 <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
                 <h2>Thanh toán</h2>
                 <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt hàng.</p>
             </div>
-
             <form class="needs-validation" name="frmthanhtoan" method="post" action="#" style="display:flex;flex-direction:row-reverse;">
                 <input type="hidden" name="kh_tendangnhap" value="dnpcuong">
                 <div class="row">
@@ -58,66 +60,55 @@ if (isset($_POST['dathang'])) {
                             <span class="text-muted">Giỏ hàng</span>
                             <span class="badge badge-secondary badge-pill">SportWave</span>
                         </h4>
-                        <?php  
-                        // Kiểm tra xem session có tồn tại hay không
-                        if (isset($_SESSION['displayQtyArray']) && is_array($_SESSION['displayQtyArray'])) {
-                            // Lấy mảng displayQtyArray từ session
-                            $displayQtyArray = $_SESSION['displayQtyArray'];
+                        <?php
+                        $i = 0;
 
-                            if (isset($_POST['selectedItems']) && is_array($_POST['selectedItems'])) {
-                                $selectedItems = $_POST['selectedItems'];
-                                $allMoney = 0;
-                                $i = 0;
+                        if (isset($_POST['selectedItems']) && is_array($_POST['selectedItems'])) {
+                            $selectedItems = $_POST['selectedItems'];
+                            $allMoney = 0;
                             ?>
-                                <div class="tableInfo">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">STT</th>
-                                                <th scope="col">Tên</th>
-                                                <th scope="col">Số lượng</th>
-                                                <th scope="col">Giá tiền</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                            <div class="tableInfo">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">STT</th>
+                                            <th scope="col">Tên</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Giá tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($selectedItems as $selectedItem) {
+                                            // Lấy thông tin sản phẩm từ CSDL
+                                            $sql_product = "SELECT * FROM sanpham WHERE ID_SanPham = $selectedItem";
+                                            $query_product = mysqli_query($mysqli, $sql_product);
+                                            while ($row_product = mysqli_fetch_array($query_product)) {
+                                                $i++;
+                                                $allMoney += $row_product['GiaBan'] * $row_product['SoLuong'];
+                                                ?>
+                                                <tr>
+                                                    <td><?= $i ?></td>
+                                                    <td><?= $row_product['TenSanPham'] ?></td>
+                                                    <td><?= $row_product['SoLuong'] ?></td>
+                                                    <td><?= number_format($row_product['GiaBan'], 0, ',', '.') ?> Đồng</td>
+                                                </tr>
                                             <?php
-                                                foreach ($selectedItems as $selectedItem) {
-                                                    // Kiểm tra xem có số lượng cho ID sản phẩm trong mảng hay không
-                                                    if (isset($displayQtyArray[$selectedItem])) {
-                                                        // Lấy số lượng tương ứng với ID sản phẩm
-                                                        $displayQty = intval($displayQtyArray[$selectedItem]);
-                                                        // Lấy thông tin sản phẩm từ CSDL
-                                                        $sql_product = "SELECT * FROM sanpham WHERE ID_SanPham = $selectedItem";
-                                                        $query_product = mysqli_query($mysqli, $sql_product);
-                                                        while ($row_product = mysqli_fetch_array($query_product)) {
-                                                            $i++;
-                                                            $allMoney += $row_product['GiaBan'] * $displayQty;
-                                                            ?>
-                                                            <tr>
-                                                                <td><?= $i ?></td>
-                                                                <td><?= $row_product['TenSanPham'] ?></td>
-                                                                <td><?= $displayQty?></td>
-                                                                <td><?= number_format($row_product['GiaBan'], 0, ',', '.') ?> Đồng</td>
-                                                            </tr>
-                                                        <?php
-                                                        }
-                                                    }
-                                                }
-                                            ?>
-                                        </tbody>
-                                    </table>
-                                    <h5 style="width:300%;float:left;color:red;margin-left:50%">Tổng tiền : <?= number_format($allMoney, 0, ',', '.') ?> Đồng</h5>
-                                    </br>
-                                </div>
-                            <?php
-                            } else {
-                                // Xử lý trường hợp không có dữ liệu sản phẩm
-                                echo "<p>Không có sản phẩm nào được chọn.</p>";
-                            }
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                                <h5 style="width:300%;float:left;color:red;margin-left:50%">Tổng tiền : <?= number_format($allMoney, 0, ',', '.') ?> Đồng</h5>
+                                </br>
+                            </div>
+                        <?php
                         } else {
-                            // Xử lý nếu không có mảng displayQtyArray trong session
-                            echo "Không có dữ liệu số lượng sản phẩm.";
-                        }?>  
+                            ?>
+                            <h4>Không có gì trong giỏ hàng</h4>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-8 order-md-1">
@@ -168,20 +159,26 @@ if (isset($_POST['dathang'])) {
 
                         &nbsp;&nbsp;&nbsp;
                         <input type="submit" class="btn btn-info" name='dathang' value="Đặt hàng">
-                        <a class="btn btn-primary" href="./suaOrder.php?id=<?php echo $row_getOrder['ID_HoaDon']; ?>">
+                        <a class="btn btn-primary" href="suaOrder.php?id=<?php echo $row_getOrder['ID_HoaDon']; ?>">
                             &nbsp;Sửa lại thông tin giao hàng</a>
                     </form>
                 </div>
             </div>
         </form>
         </div>
+        <!-- End block content -->
     </main>
     <?php @include("../footer.php"); ?>
 </body>
 
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/popperjs/popper.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../assets/js/app.js"></script>
 
 </html>

@@ -22,141 +22,28 @@ $row = mysqli_fetch_array($query_ThanhVien);
   <link rel="stylesheet" href="./cart.css">
   <link rel="stylesheet" href="../themify-icons/themify-icons.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
-
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
-  <?php @include("../menu.php"); ?>
-  <div class="container">
-    <h2>Giỏ hàng</h2>
-    </br>
-    <div class="tableInfo">
-      <?php
-      if (isset($_SESSION['ID_ThanhVien'])) {
-
-        ?>
-        <form method="POST" action="../order/saveorder.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>">
-          <table class="table" style="vertical-align: middle;">
-            <thead>
-              <tr style="vertical-align: middle;">
-                <th><input type="checkbox" id="selectAllCheckbox" class="checkBoxCart"></th>
-                <th scope="col">STT</th>
-                <th scope="col">ID</th>
-                <th scope="col">Tên sản phẩm</th>
-                <th scope="col">Hình ảnh</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Giá tiền</th>
-                <th scope="col">Tùy chọn</th>
-              </tr>
-            </thead>
-            <?php
-            if (isset($_SESSION['cart'])) {
-              $i = 0;
-              $allMoney = 0;
-              $allAmount = 0;
-
-              ?>
-              <tbody style="border-bottom: 2px solid #dee2e6;">
-                <?php foreach ($_SESSION['cart'] as $key => $value) {
-                  $i++;
-                  ?>
-                  <td><input type="checkbox" name="selectedItems[]" class="checkBoxCart checkbox" value="<?= $key ?>"></td>
-                  <td>
-                    <?= $i ?>
-                  </td>
-                  <td>
-                    <?= $key ?>
-                  </td>
-                  <td>
-                    <?= $value['TenSanPham'] ?>
-                  </td>
-                  <td><img src="../image/product/<?= $value['Img'] ?>"></td>
-                  <td>
-                    <?= $value['qty'] ?>
-                  </td>
-                  <td>
-                    <?php echo number_format($value['GiaBan'], 0, ',', '.') ?> VND
-                  </td>
-                  <td><a href="actionCart.php?id_product=<?= $key ?>">Xóa</a></td>
-                </tbody>
-                <?php
-                }
-            } else {
-              ?>
-              <h4>Không có gì trong giỏ hàng</h4>
-              <?php
-            }
-            ?>
-
-          </table>
-          <?php if (isset($_SESSION['cart'])) {
-            foreach ($_SESSION['cart'] as $value) {
-              $amount = $value['qty'];
-              $allAmount += $amount;
-            }
-
-            ?>
-            <h4 id="totalMoney" style="float: right;color:red;">
-              <?php echo number_format($allMoney, 0, ',', '.') ?> VND
-            </h4>
-            <h5 style="float: right; width: 3%;"> Tổng tiền
-              <?= $allAmount ?> sản phẩm:
-            </h5>
-            </br>
-
-            <?php
-            $_SESSION['$allMoney'] = $allMoney;
-            $_SESSION['$allAmount'] = $allAmount;
-          }
-          ?>
-          </br>
-          </br>
-      </div>
-      <input type="submit" class="btn btn-info" name='submit' value="Thanh toán" style="float:right; width: 20%">
-      </form>
-      <?php
-      } else {
-        ?>
-      <h4>Vui lòng đăng nhập để mua hàng</h4>
-      <?php
-      }
-      ?>
-    </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-  </div>
-  <?php @include("../footer.php"); ?>
-</body>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
   $(document).ready(function () {
     initializeTotal(); // Gọi hàm khi trang được tải
 
     function initializeTotal() {
-      $('#totalMoney').text('0 VND');
-      $('#totalAmount').text('0');
+      $('#allMoney').text('0 VND');
+      $('#allAmount').text('0 sản phẩm có giá:');
     }
 
     function updateTotal() {
-      var totalMoney = 0;
-      var totalAmount = 0;
+      var allMoney = 0;
+      var allAmount = 0;
 
       // ... (giữ nguyên phần còn lại của hàm updateTotal)
 
-      $('#totalMoney').text(numberWithCommas(totalMoney) + ' VND');
-      $('#totalAmount').text(totalAmount);
+      $('#allMoney').text(numberWithCommas(allMoney) + ' VND');
+      $('#allAmount').text(numberWithCommas(allAmount) + ' sản phẩm có giá:');
     }
     $('#selectAllCheckbox').change(function () {
       var isChecked = $(this).prop('checked');
@@ -180,8 +67,8 @@ $row = mysqli_fetch_array($query_ThanhVien);
     });
 
     function updateTotal() {
-      var totalMoney = 0;
-      var totalAmount = 0;
+      var allMoney = 0;
+      var allAmount = 0;
 
       $('.checkbox:checked').each(function () {
         var row = $(this).closest('tr');
@@ -189,21 +76,173 @@ $row = mysqli_fetch_array($query_ThanhVien);
         var quantity = parseInt(row.find('td:eq(5)').text());
         var subtotal = price * quantity;
 
-        totalMoney += subtotal;
-        totalAmount += quantity;
+        allMoney += subtotal;
+        allAmount += quantity;
       });
 
-      $('#totalMoney').text(numberWithCommas(totalMoney) + ' VND');
-      $('#totalAmount').text(totalAmount);
+      $('#allMoney').text(numberWithCommas(allMoney) + ' VND');
+      $('#allAmount').text(numberWithCommas(allAmount) + ' sản phẩm có giá:');
     }
 
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-    
-  });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    }  
 
+    var selectedItems = [];
+
+    $('.checkBoxCart:checked').each(function() {
+      var productId = $(this).data('ID_SanPham');
+      var quantity = parseInt($(this).closest('tr').find('.quantity-input').val());
+
+      // if (!isNaN(quantity) && quantity > 0) {
+      //     var displayQty = parseInt($(this).closest('tr').find('.display-qty').text());
+      //     selectedItems.push({productId: productId, quantity: quantity, displayQty: displayQty});
+      // }
+    });
+
+    if (selectedItems.length > 0) {
+        // Gửi dữ liệu đến trang phuongthucthanhtoan.php bằng phương thức POST
+        $.post('../order/phuongthucthanhtoan.php', {selectedItems: selectedItems}, function(response) {
+            // Xử lý phản hồi từ trang phuongthucthanhtoan.php (nếu cần)
+            console.log(response);
+        });
+    } else {
+        // Gửi dữ liệu đến trang phuongthucthanhtoan.php bằng phương thức POST
+        $.post('../order/phuongthucthanhtoan.php', {selectedItems: selectedItems}, function(response) {
+            // Xử lý phản hồi từ trang phuongthucthanhtoan.php (nếu cần)
+            console.log(response);
+        });
+    }
+});
+</script>
+
+<body>
+  <?php @include("../menu.php"); ?>
+  <div class="container">
+    <h2>Giỏ hàng</h2>
+    </br>
+    <div class="tableInfo">
+      <?php
+      if (isset($_SESSION['ID_ThanhVien'])) {
+
+        ?>
+        <form method="POST" action="../order/phuongthucthanhtoan.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>">
+          <input type="hidden" name="selectedItems" value="<?php echo implode(',', array_keys($_SESSION['cart'])); ?>">
+          <table class="table" style="vertical-align: middle;">
+            <thead>
+              <tr style="vertical-align: middle;">
+                <th><input type="checkbox" id="selectAllCheckbox" class="checkBoxCart"></th>
+                <th scope="col">STT</th>
+                <th scope="col">ID</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Hình ảnh</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Giá tiền</th>
+                <th scope="col">Tùy chọn</th>
+              </tr>
+            </thead>
+            <?php
+            if (isset($_SESSION['cart'])) {
+              $i = 0;
+              $allMoney = 0;
+              $allAmount = 0;
+              $displayQtyArray = array(); // Mảng tạm để lưu displayQty
+              ?>
+              <tbody style="border-bottom: 2px solid #dee2e6;">
+                <?php foreach ($_SESSION['cart'] as $key => $value) {
+                  $i++;
+                  ?>
+                  <td><input type="checkbox" name="selectedItems[]" class="checkBoxCart checkbox" value="<?= $key ?>"></td>
+                  <td>
+                    <?= $i ?>
+                  </td>
+                  <td>
+                    <?= $key ?>
+                  </td>
+                  <td>
+                    <?= $value['TenSanPham'] ?>
+                  </td>
+                  <td><img src="../image/product/<?= $value['Img'] ?>" style="max-width:240px;max-height:240px"></td>
+                  <td>
+                  <?php
+                    // Lấy ID sản phẩm từ $key hoặc từ bất kỳ nguồn dữ liệu nào phù hợp
+                    $productID = $key;
+                    // Truy vấn SQL để lấy giá trị SoLuong của sản phẩm
+                    $sql_getQuantity = "SELECT SoLuong FROM sanpham WHERE ID_SanPham = $productID";
+                    $query_getQuantity = mysqli_query($mysqli, $sql_getQuantity);
+                    $row_product = mysqli_fetch_array($query_getQuantity);
+                    // Kiểm tra xem có dữ liệu được trả về hay không
+                    if ($row_product) {
+                      // Sử dụng giá trị SoLuong từ dữ liệu trả về
+                      $displayQty = ($value['qty'] > $row_product['SoLuong']) ? $row_product['SoLuong'] : $value['qty'];
+                      $displayQtyArray[$key] = $displayQty;
+                      echo $displayQty;
+                      // Lưu mảng displayQty vào session
+                      $_SESSION['displayQtyArray'] = $displayQtyArray;
+                    } else {
+                      // Xử lý nếu không có dữ liệu trả về
+                      echo "Không có dữ liệu SoLuong";
+                    }
+                  ?>
+                  </td>
+                  <td>
+                    <?php echo number_format($value['GiaBan'], 0, ',', '.') ?> VND
+                  </td>
+                  <td><a href="actionCart.php?id_product=<?= $key ?>">Xóa</a></td>
+                </tbody>
+                <?php
+                }
+            } else {
+            ?>
+              <h4>Không có gì trong giỏ hàng</h4>
+              <?php
+            }
+            ?>
+          </table>
+          <?php if (isset($_SESSION['cart'])) {?>
+            <h4 id="allMoney" style="float: right;color:red;">
+              <?php echo number_format($allMoney, 0, ',', '.') ?>
+            </h4>
+            <h5 id="allAmount" style="float: right; width: 3%;">
+              <?= $allAmount ?>
+            </h5>
+            </br>
+
+            <?php
+            $_SESSION['$allMoney'] = $allMoney;
+            $_SESSION['$allAmount'] = $allAmount;
+          }
+          ?>
+          </br>
+          </br>
+      </div>
+      <a href="phuongthucthanhtoan.php">
+        <input type="submit" class="btn btn-info" name='submit' value="Thanh toán" style="float:right; width: 20%">
+      </a>
+      </form>
+      <?php
+      } else {
+      ?>
+        <h4>Vui lòng đăng nhập để mua hàng</h4>
+      <?php
+      }
+      ?>
+    </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+  </div>
+  <?php @include("../footer.php"); ?>
+</body>
 </html>

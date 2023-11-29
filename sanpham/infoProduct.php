@@ -70,9 +70,10 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
                                 </p>
 
                                 <?php if (isset($_SESSION['TenDangNhap'])) { ?>
-                                    <div class="form-group">
+                                    <div class="form-group" style="gap:10px">
                                         <label for="soluong">Số lượng đặt mua:</label>
-                                        <input type="number" class="form-control" id="soluong" name="soluong" value="1">
+                                        <input type="number" class="form-control" id="soluong" name="soluong" value="1" max="<?php echo $row_product['SoLuong']; ?>" min="1">
+                                        <label for="soluong">Sản phẩm có sẵn: <?php echo $row_product['SoLuong']; ?></label>
                                     </div>
                                     <div class="action">
                                         <input type="submit" class="btn btn-primary" name='submit' value="Mua hàng">

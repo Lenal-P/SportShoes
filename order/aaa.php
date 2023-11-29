@@ -9,8 +9,8 @@
   	$row= mysqli_fetch_array($query_ThanhVien);
 	$ThoiGianLap=date("Y-m-d H:i:s");
 	$DiaChi=$row['DiaChi'];
-	if (isset($_SESSION['cart'])) {
-	 		 $allMoney=0;
+	 if (isset($_SESSION['cart'])) {
+	 		$allMoney=0;
             $allAmount=0;
           foreach ($_SESSION['cart'] as $value) {
             $Money =$value['qty']*$value['GiaBan'];

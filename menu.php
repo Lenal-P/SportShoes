@@ -2,7 +2,6 @@
 include("conection.php"); 
 session_start();
 ?>
-<link rel="stylesheet" href="./menu.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +11,7 @@ session_start();
 <div class="sticky-top">
   <div class="menu sticky-top">
       <nav class="navbar navbar-expand-lg header-custom">
-          <div class="container-fluid font-header-custom">
+          <div class="container-fluid font-header-custom" style="max-height:80px">
               <a class="navbar-branch" href="../index.php">
                   <img src="../image/logo/logochinh.jpg">
               </a>
