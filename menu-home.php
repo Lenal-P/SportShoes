@@ -38,7 +38,7 @@ session_start();
                         </li>
                         <li class="nav-item">
                             <a type="button" class="btn btn-secondary"
-                                href="../ThanhVien/profile.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>" id="btn"
+                                href="../SportShoes/ThanhVien/profile.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>" id="btn"
                                 style="color:rgb(222, 90, 0);font-size: 18px;font-weight:bold;position:absolute;right: 2%;cursor: pointer;z-index: 10000;background-color: transparent !important;border: none !important;"></span>
                                 <?php echo $_SESSION['HoVaTen'] ?>
                             </a>

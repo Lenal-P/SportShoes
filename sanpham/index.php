@@ -92,84 +92,10 @@ $query_getList= mysqli_query($mysqli, $sql_getList);
       </div>
     </br>
   </br>
-    <div id="tt">
-        <?php
-        while($row_tt = mysqli_fetch_array($query_tt)){
-        ?>
-        <form class="card" style="float:left" action="infoProduct.php?id_product=<?php echo $row_tt['ID_SanPham'];?>" method="POST">
-          <div class="d-flex flex-column text-center border">
-            <img src="../image/product/<?php echo $row_product['Img']; ?>" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h2><?php echo $row_product['TenSanPham'];?></h2>
-              <h6>Giá: <?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?> VND</h6>
-              <?php if(isset($_SESSION['TenDangNhap'])) { ?>
-              <input type="submit" class="btn btn-info" name='submit' value="Mua">  
-              <?php }else{ ?>
-              <input type="submit" class="btn btn-info" name='submit' value="Xem Thông Tin">
-              <?php 
-              } 
-              ?>
-            </div>
-          </div>
-        </form>
-        <?php
-          }
-        ?>
-      </div>
-
-    <div id="fg">
-      <?php
-        while($row_fg = mysqli_fetch_array($query_fg)){
-      ?>
-      <form class="card" style="float:left" action="infoProduct.php?id_product=<?php echo $row_fg['ID_SanPham'];?>" method="POST">
-        <div class="d-flex flex-column text-center border">
-          <img src="../image/product/<?php echo $row_product['Img']; ?>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2><?php echo $row_product['TenSanPham'];?></h2>
-            <h6>Giá: <?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?> VND</h6>
-            <?php if(isset($_SESSION['TenDangNhap'])) { ?>
-            <input type="submit" class="btn btn-info" name='submit' value="Mua">  
-            <?php }else{ ?>
-            <input type="submit" class="btn btn-info" name='submit' value="Xem Thông Tin">
-            <?php 
-            } 
-            ?>
-          </div>
-        </div>
-    </form>
-      <?php
-      }
-      ?>
-    </div>
-
-    <div id="futsal">
-      <?php
-        while($row_futsal = mysqli_fetch_array($query_futsal)){
-      ?>
-      <form class="card" style="float:left" action="infoProduct.php?id=<?php echo $row_futsal['ID_SanPham'];?>" method="POST">
-        <div class="d-flex flex-column text-center border">
-          <img src="../image/product/<?php echo $row_product['Img']; ?>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2><?php echo $row_product['TenSanPham'];?></h2>
-            <h6>Giá: <?php echo number_format($row_product['GiaBan'], 0, ',', '.') ?> VND</h6>
-            <?php if(isset($_SESSION['TenDangNhap'])) { ?>
-            <input type="submit" class="btn btn-info" name='submit' value="Mua">  
-            <?php }else{ ?>
-            <input type="submit" class="btn btn-info" name='submit' value="Xem Thông Tin">
-            <?php 
-            } 
-            ?>
-          </div>
-        </div>
-      </form>
-      <?php
-      }
-      ?>
-    </div>
-    </div>
+  </div>
   </div>
    
-  </div>   
-  <?php @include("../footer.php"); ?>     
+</div>   
+<?php @include("../footer.php"); ?>     
 </body>
 </html>
