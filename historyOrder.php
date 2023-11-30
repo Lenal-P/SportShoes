@@ -48,9 +48,9 @@ if (isset($_SESSION['ID_ThanhVien'])) {
         <?php
         if (isset($_SESSION['ID_ThanhVien'])) {
           $i=0;
-      while($row_getOrder = mysqli_fetch_array($query_getOrder)){
+        while($row_getOrder = mysqli_fetch_array($query_getOrder)){
           $i++;
-      ?>
+        ?>
 
             <td><?php echo $i ?></td>
             <td><?php echo $row_getOrder['ID_HoaDon']; ?></td>  

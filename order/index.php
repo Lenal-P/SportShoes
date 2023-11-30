@@ -28,8 +28,7 @@ $row_getCus = mysqli_fetch_array($query_getCus);
 
 <body>
   <?php @include("../menu.php"); ?>
-
-  <div class="container">
+    <div class="container">
     <div class="get-order" style="float: left; ">
       <h2>Hóa đơn mua hàng của bạn</h2>
       </br>

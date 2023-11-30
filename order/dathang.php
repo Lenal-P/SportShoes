@@ -6,9 +6,10 @@ if (isset($_POST['back'])) {
   unset($_SESSION['cart']);
   header('location:../index.php');
 }
-$sql_getOrder = "SELECT * FROM hoadon ORDER BY ID_HoaDon DESC LIMIT 1";
+$sql_getOrder = "SELECT * FROM hoadon WHERE XuLy != 0 ORDER BY ID_HoaDon LIMIT 1";
 $query_getOrder = mysqli_query($mysqli, $sql_getOrder);
 $row_getOrder = mysqli_fetch_array($query_getOrder);
+
 ?>
 
 
@@ -54,7 +55,7 @@ $row_getOrder = mysqli_fetch_array($query_getOrder);
         <?php
       }
       ?>
-
+      
       <td><input type="submit" name="back" value="Trở về trang chủ ?? Hãy nhấn vào đây" style="padding:10px;border-radius:10px;"></td>
     </form>
   </div>

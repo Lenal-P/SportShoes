@@ -19,10 +19,13 @@
           }
 	$SoDienThoai=$row['SoDienThoai'];
 	$GiaTien=$allMoney;
+    $_SESSION['$ID_SP'] = $value['ID_SanPham'];
+    $_SESSION['$TENSP'] = $value['TenSanPham'];
+    $_SESSION['$allMoney'] = $allMoney;
+    $_SESSION['$allAmount'] = $allAmount;
 }
 	$sql_saveOrder="INSERT INTO hoadon(ID_ThanhVien,ThoiGianLap,DiaChi,GiaTien,SoDienThoai) VALUES('".$ID_ThanhVien."','".$ThoiGianLap."','".$DiaChi."','".$GiaTien."','".$SoDienThoai."')";
 		mysqli_query($mysqli,$sql_saveOrder);
-		
 	header("location:phuongthucthanhtoan.php?id={$ID_ThanhVien}");
 	}
 ?>

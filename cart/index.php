@@ -87,30 +87,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }  
 
-    var selectedItems = [];
-
-    $('.checkBoxCart:checked').each(function() {
-      var productId = $(this).data('ID_SanPham');
-      var quantity = parseInt($(this).closest('tr').find('.quantity-input').val());
-    });
-
-    if (selectedItems.length > 0) {
-        // Gửi dữ liệu đến trang phuongthucthanhtoan.php bằng phương thức POST
-        $.post('../order/phuongthucthanhtoan.php', {selectedItems: selectedItems}, function(response) {
-            console.log(response);
-        });
-        $.post('../order/saveorder.php', {selectedItems: selectedItems}, function(response) {
-            console.log(response);
-        });
-    } else {
-        // Gửi dữ liệu đến trang phuongthucthanhtoan.php bằng phương thức POST
-        $.post('../order/phuongthucthanhtoan.php', {selectedItems: selectedItems}, function(response) {
-            console.log(response);
-        });
-        $.post('../order/saveorder.php', {selectedItems: selectedItems}, function(response) {
-            console.log(response);
-        });
-    }
+    
 });
 </script>
 
@@ -208,38 +185,38 @@ $row = mysqli_fetch_array($query_ThanhVien);
           </br>
           </br>
       </div>
-      <a href="phuongthucthanhtoan.php">
+      <a href="../order/phuongthucthanhtoan.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>">
         <input type="submit" class="btn btn-info" name='submit' value="Thanh toán" style="float:right; width: 20%">
       </a>
-      </form>
-      <?php
-      } else {
-        ?>
-          <h4>Không có gì trong giỏ hàng!</h4>
-        <?php
-      }
-      } else {
+    </form>
+    <?php
+    } else {
       ?>
-        <h4>Vui lòng đăng nhập để mua hàng</h4>
+        <h4>Không có gì trong giỏ hàng!</h4>
       <?php
-      }
-      ?>
-    </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-  </div>
-  <?php @include("../footer.php"); ?>
+    }
+    } else {
+    ?>
+      <h4>Vui lòng đăng nhập để mua hàng</h4>
+    <?php
+    }
+    ?>
+</div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</div>
+<?php @include("../footer.php"); ?>
 </body>
 </html>
