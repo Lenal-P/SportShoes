@@ -5,7 +5,7 @@ if (isset($_SESSION['ID_ThanhVien'])) {
   $ID_ThanhVien=$_SESSION['ID_ThanhVien'];
   $sql_getOrder="SELECT * FROM hoadon where hoadon.ID_ThanhVien=$ID_ThanhVien and hoadon.XuLy='1' ";
   $query_getOrder=mysqli_query($mysqli,$sql_getOrder);
-  $sql_NoOrder="SELECT * FROM hoadon where hoadon.ID_ThanhVien=$ID_ThanhVien and hoadon.XuLy!='1' ";
+  $sql_NoOrder="SELECT * FROM hoadon where hoadon.ID_ThanhVien=$ID_ThanhVien and hoadon.XuLy='0' ";
   $query_NoOrder=mysqli_query($mysqli,$sql_NoOrder);
 }
 

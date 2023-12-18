@@ -43,6 +43,8 @@ if (isset($_POST['dathang'])) {
 <body>
     <?php include("../menu.php"); ?>
 
+    <?php var_dump($_SESSION) ?>
+
     <?php 
     $sql_getOrder = "SELECT * FROM hoadon ORDER BY ID_HoaDon DESC LIMIT 1";
     $query_getOrder = mysqli_query($mysqli, $sql_getOrder);
@@ -53,8 +55,7 @@ if (isset($_POST['dathang'])) {
         echo "Empty query!";
         exit;
     }
-?>
-
+    ?>
     <main role="main" style="height:120vh;">
         <div class="container mt-4" style="margin:auto;width:100%;">
             <div class="py-5 text-center">
@@ -76,6 +77,31 @@ if (isset($_POST['dathang'])) {
                             $displayQtyArray = $_SESSION['displayQtyArray'];
 
                             if (isset($_POST['selectedItems']) && is_array($_POST['selectedItems'])) {
+                                //------------------------Save Order---------------------------
+                                if (isset($_POST['submit'])) {
+                                    $ID_ThanhVien=isset($_GET['id']) ? $_GET['id']: '';
+                                    $sql_ThanhVien = "SELECT * FROM thanhvien WHERE ID_ThanhVien=$ID_ThanhVien LIMIT 1";
+                                    $query_ThanhVien = mysqli_query($mysqli,$sql_ThanhVien);
+                                    $row= mysqli_fetch_array($query_ThanhVien);
+                                    $ThoiGianLap=date("Y-m-d H:i:s");
+                                    $DiaChi=$row['DiaChi'];
+                                    if (isset($_SESSION['cart'])) {
+                                            $allMoney=0;
+                                            $allAmount=0;
+                                        foreach ($_SESSION['cart'] as $value) {
+                                            $Money =$value['qty']*$value['GiaBan'];
+                                            $amount=$value['qty'];
+                                            $allMoney +=$Money;
+                                            $allAmount+=$amount;
+                                        }
+                                    $SoDienThoai=$row['SoDienThoai'];
+                                    $GiaTien=$allMoney;
+                                    }
+                                    $sql_saveOrder="INSERT INTO hoadon(ID_ThanhVien,ThoiGianLap,DiaChi,GiaTien,SoDienThoai) VALUES('".$ID_ThanhVien."','".$ThoiGianLap."','".$DiaChi."','".$GiaTien."','".$SoDienThoai."')";
+                                        mysqli_query($mysqli,$sql_saveOrder);
+                                }
+                                //------------------------Save Order---------------------------
+
                                 $selectedItems = $_POST['selectedItems'];
                                 $i = 0;
                                 $allMoney = 0;
@@ -181,12 +207,6 @@ if (isset($_POST['dathang'])) {
     </main>
     <?php include("../footer.php"); ?>
 </body>
-<?php 
-if (isset($_SESSION['cart'])) {
-  $_SESSION['$allMoney'] = $allMoney;
-  $_SESSION['$allAmount'] = $displayQty;
-}
-?>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
