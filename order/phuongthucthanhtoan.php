@@ -43,8 +43,6 @@ if (isset($_POST['dathang'])) {
 <body>
     <?php include("../menu.php"); ?>
 
-    <?php var_dump($_SESSION) ?>
-
     <?php 
     $sql_getOrder = "SELECT * FROM hoadon ORDER BY ID_HoaDon DESC LIMIT 1";
     $query_getOrder = mysqli_query($mysqli, $sql_getOrder);

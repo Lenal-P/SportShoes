@@ -10,7 +10,6 @@ $query_product = mysqli_query($mysqli, $sql_product);
 <head>
   <meta charset=utf-8>
   <title>Trang chủ</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="bootstrap/js/bootstrap.bundle.min.js">
@@ -23,16 +22,6 @@ $query_product = mysqli_query($mysqli, $sql_product);
 <body>
   
   <?php @include("./menu-home.php"); ?>
-
-  <div>
-    <ul class="nav flex-column sticky-top">
-      <li class="nav-item">
-        <a class="navbar-branch nav-link" href="../index.php">
-          <img style="margin-top: 100px; display: none;" src="image/quangcaoo/thanh2.png" height="120">
-        </a>
-      </li>
-    </ul>
-  </div>
   <div class="position-fixed" style="align-items:center;top:200px; left:10px;z-index: 10000;">
     <a href="./sanpham/index.php">
       <img style="width:150px;" src="./image/quangcaoo/thanh1.jpg" width="50%">
@@ -133,6 +122,7 @@ $query_product = mysqli_query($mysqli, $sql_product);
   </div>
   <?php @include("./footer-home.php"); ?>
 </body>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
