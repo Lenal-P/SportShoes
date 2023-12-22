@@ -24,7 +24,6 @@ $row_getOrder = mysqli_fetch_array($query_getOrder);
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="../home.css">
-  <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 

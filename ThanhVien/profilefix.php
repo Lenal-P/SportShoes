@@ -47,7 +47,6 @@ if (isset($_POST['sua']) && $_POST['HoVaTen'] != "" && $_POST['Email'] != "" && 
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="../menu.css">
   <link rel="stylesheet" href="../footer.css">
   <link rel="stylesheet" href="./profile.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="../image/png">

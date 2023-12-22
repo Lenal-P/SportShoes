@@ -14,7 +14,6 @@ $query_product = mysqli_query($mysqli, $sql_product);
   <link rel="stylesheet" href="bootstrap/js/bootstrap.bundle.js">
   <link rel="stylesheet" href="bootstrap/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="./home.css">
-  <link rel="stylesheet" href="./menu.css">
   <link rel="stylesheet" href="./footer-home.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
 </head>
@@ -75,10 +74,9 @@ $query_product = mysqli_query($mysqli, $sql_product);
       <?php if (isset($_SESSION['TenDangNhap'])) {
         ?>
         <div class="container">
-
-          <form action="sanpham/infoProduct.php?id_product=<?php echo $row_product['ID_SanPham']; ?>" method="POST">
-            <div style="margin: 20px">
-              <div class="card" style=" float: left; text-align: center  ">
+          <form action="sanpham/infoProduct.php?id_product=<?php echo $row_product['ID_SanPham']; ?>" method="POST" >
+            <div style="margin: 20px;">
+              <div class="card" style=" float: left; text-align: center;">
                 <img src="image/product/<?php echo $row_product['Img']; ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h2>
