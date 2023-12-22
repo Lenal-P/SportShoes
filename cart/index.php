@@ -18,7 +18,6 @@ $row = mysqli_fetch_array($query_ThanhVien);
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="../home.css">
   <link rel="stylesheet" href="../footer.css">
-  <link rel="stylesheet" href="./cart.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="image/png">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -201,21 +200,70 @@ $row = mysqli_fetch_array($query_ThanhVien);
     }
     ?>
 </div>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
 </div>
-<?php @include("../footer.php"); ?>
+  <?php @include("../footer.php"); ?>
 </body>
 </html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,700;1,300&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    vertical-align: middle !important;
+  }
+  html {
+    height: 100vh;
+  }
+  body {
+    z-index: -100;
+    height: 100%;
+  }
+
+  .container {
+    & h2 {
+        text-transform: uppercase;
+        margin-top: 10%;
+    }
+  }
+
+  .table {
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid #dee2e6;
+  }
+
+  h5 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 100px;
+    width: 30% !important;
+    font-size: 1.5rem;
+  }
+
+  .container .btn-info {
+    position: absolute;
+    right: 10%;
+    font-size: 20px;
+    background-color: rgb(244, 121, 38);
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.3s;
+    &:hover {
+        transform: scale(1.1);
+        background-color: rgb(244, 121, 38) !important;
+        color: white;
+    }
+  }
+  .footer {
+    position: relative;
+    top: 10%;
+  }
+</style>

@@ -27,3 +27,14 @@ if (session_status() == PHP_SESSION_NONE) {
       </a>
   </div>
 </footer>
+
+<style>
+  @media screen and (max-width: 1024px) { 
+    .footer {
+        & img {
+            height: 100px;
+            width: 100px;
+        }
+    }
+  }
+</style>

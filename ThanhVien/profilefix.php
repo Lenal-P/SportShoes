@@ -133,3 +133,20 @@ if (isset($_POST['sua']) && $_POST['HoVaTen'] != "" && $_POST['Email'] != "" && 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </html>
+
+<style>
+  @media screen and (max-width: 1024px) { 
+    .bg-light {
+      margin: 10% 0;
+      height: 500px !important;
+      width: 500px !important;
+      & form {
+        height: 450px;
+      }
+    }
+    .navbar-right {
+      left: 0;
+      right: 0;
+    }
+  }
+</style>

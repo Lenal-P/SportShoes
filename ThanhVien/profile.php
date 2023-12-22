@@ -22,39 +22,7 @@ $row = mysqli_fetch_array($query_Cus);
   <link rel="stylesheet" href="../footer.css">
   <link rel="stylesheet" href="./profile.css">
   <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/laptop--v3.png" type="../image/png">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-  <style type="">
-    .divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
-}
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
-}
-  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">   
 </head>
 
 <body>
@@ -112,3 +80,20 @@ $row = mysqli_fetch_array($query_Cus);
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </html>
+
+<style>
+  @media screen and (max-width: 1024px) { 
+    .bg-light {
+      margin: 10% 0;
+      height: 500px !important;
+      width: 500px !important;
+      & form {
+        height: 450px;
+      }
+    }
+    .navbar-right {
+      left: 0;
+      right: 0;
+    }
+  }
+</style>

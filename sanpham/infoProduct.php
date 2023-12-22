@@ -143,3 +143,16 @@ $query_comment = mysqli_query($mysqli, $sql_comment);
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </html>
+
+<style>
+  @media screen and (max-width: 1024px) { 
+    .card {
+        width: 100%;
+    }
+    .wrapper {
+        width: 100%;
+        position: relative;
+        margin: 0;
+    }
+  }
+</style>

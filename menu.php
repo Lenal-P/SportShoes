@@ -206,25 +206,28 @@ if (session_status() == PHP_SESSION_NONE) {
     }
 
     @media screen and (max-width: 1024px) { 
+        .container {
+            margin-top: 100px !important;
+        }
         .navbar-branch {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: auto;
-        margin: 0 45%;
-        z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            margin: 0 45%;
+            z-index: 0;
             & img {
                 margin: 0;
             }
         }
 
         .navbar-form {
-        position: fixed;
-        background-color: #2a2a2a;
-        width: 100vw;
-        margin-top: 125px;
-        height: 50px;
-        border: 2px #2a2a2a;
+            position: absolute;
+            background-color: #2a2a2a;
+            width: 100vw;
+            margin-top: 125px;
+            height: 50px;
+            border: 2px #2a2a2a;
             & .input-group{
                 width: 50% !important;
                 height: 30px;
@@ -235,7 +238,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .rps-menu {
-        display: none;
+            display: none;
         }
 
         .position-fixed {
@@ -243,7 +246,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .navbar-collapse {
-            position: fixed !important;
+            position: absolute !important;
             display: flex;
             width: 100vw !important;
             height: 100px !important;
@@ -253,11 +256,12 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .btn-first {
-            position: fixed;
-            top: 50px !important;
+            position: absolute;
+            top: 60px !important;
             height: auto !important;
             width: auto !important;
             padding: 0 !important;
+            right: 5% !important;
         }
 
         .nav-item .nav-product {
@@ -265,7 +269,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .nav-item .btn-secondary {
-            position: fixed;
+            position: absolute;
             top: 60%;
             height: auto !important;
             width: auto !important;
@@ -274,13 +278,14 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .nav-product span {
-            position: fixed;
+            position: absolute;
             padding: 0 !important;
-            margin: 0 !important;
             height: auto !important;
             width: auto !important;
-            right: 12%;
-            top: 50px !important;
+            left: -100px;
+            right: 0;
+            top: 10px !important;
+            z-index: 2;
         }
 
         .nav-overlay {
@@ -350,7 +355,7 @@ if (session_status() == PHP_SESSION_NONE) {
             color: white;
             z-index: 10000;
             display: block;
-            position: fixed;
+            position: absolute;
             padding: 0 !important;
             margin: 0 !important;
             height: auto !important;
@@ -380,25 +385,28 @@ if (session_status() == PHP_SESSION_NONE) {
     }
 
     @media screen and (min-width: 1025px) and (max-width: 1280px) {
+        .container {
+            margin-top: 100px !important;
+        }
         .navbar-branch {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: auto;
-        margin: 0 45%;
-        z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            margin: 0 45%;
+            z-index: 0;
             & img {
                 margin: 0;
             }
         }
 
         .navbar-form {
-        position: fixed;
-        background-color: #2a2a2a;
-        width: 100vw;
-        margin-top: 125px;
-        height: 50px;
-        border: 2px #2a2a2a;
+            position: absolute;
+            background-color: #2a2a2a;
+            width: 100vw;
+            margin-top: 125px;
+            height: 50px;
+            border: 2px #2a2a2a;
             & .input-group{
                 width: 50% !important;
                 height: 30px;
@@ -409,7 +417,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .rps-menu {
-        display: none;
+            display: none;
         }
 
         .position-fixed {
@@ -417,7 +425,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .navbar-collapse {
-            position: fixed !important;
+            position: absolute !important;
             display: flex;
             width: 100vw !important;
             height: 100px !important;
@@ -427,11 +435,12 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .btn-first {
-            position: fixed;
-            top: 50px !important;
+            position: absolute;
+            top: 60px !important;
             height: auto !important;
             width: auto !important;
             padding: 0 !important;
+            right: 5% !important;
         }
 
         .nav-item .nav-product {
@@ -439,7 +448,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .nav-item .btn-secondary {
-            position: fixed;
+            position: absolute;
             top: 60%;
             height: auto !important;
             width: auto !important;
@@ -448,13 +457,14 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .nav-product span {
-            position: fixed;
+            position: absolute;
             padding: 0 !important;
-            margin: 0 !important;
             height: auto !important;
             width: auto !important;
-            right: 12%;
-            top: 50px !important;
+            left: -100px;
+            right: 0;
+            top: 10px !important;
+            z-index: 2;
         }
 
         .nav-overlay {
@@ -524,7 +534,7 @@ if (session_status() == PHP_SESSION_NONE) {
             color: white;
             z-index: 10000;
             display: block;
-            position: fixed;
+            position: absolute;
             padding: 0 !important;
             margin: 0 !important;
             height: auto !important;

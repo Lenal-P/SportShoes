@@ -28,7 +28,7 @@ if (isset($_SESSION['ID_ThanhVien'])) {
   <?php @include("./menu-home.php"); ?>
   
   <div class="container">
-    <div class="duyet" style="width:500px; float:left;" >
+    <div class="duyet daDuyet" style="width:500px; float:left;" >
       <h3>Đơn Đã được duyệt</h3>
     <table class="table">
       <thead>
@@ -71,7 +71,7 @@ if (isset($_SESSION['ID_ThanhVien'])) {
         ?>
     </table>
     </div>
-    <div class="duyet" style="width:500px; float:right">
+    <div class="duyet chuaDuyet" style="width:500px; float:right">
       <h3>Đơn chưa được duyệt</h3>
     <table class="table">
       <thead>
@@ -116,3 +116,26 @@ if (isset($_SESSION['ID_ThanhVien'])) {
 </body>
 </html>
 
+<style>
+  @media screen and (max-width: 1024px) { 
+    .daDuyet {
+      position: relative;
+      width: 100% !important;
+      margin-top: 50px;
+      left: 0;
+      height: auto;
+    }
+    .chuaDuyet {
+      position: relative;
+      width: 100% !important;
+      left: 0;
+      right: 0;
+      height: auto;
+    }
+    h3 {
+      display: flex;
+      justify-content: center;
+      margin: 5% 0;
+    }
+  }
+</style>
